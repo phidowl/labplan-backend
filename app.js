@@ -16,6 +16,10 @@ app.get('/health', (_req, res) => res.send('ok'));
 app.use('/', indexRouter);
 /* If present */ app.use('/generate', generateRouter);
 
+// Generate Router
+const generateRouter = require('./routes/generate');   // exact path
+app.use('/generate', generateRouter);
+
 // 404
 app.use((req, res) => res.status(404).sendFile(path.join(__dirname, 'views', '404.html')));
 
